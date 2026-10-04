@@ -17,6 +17,17 @@ This plugin fixes that. It changes Obsidian's behavior so that when a wikilink h
 
 If the relative path backs up all the way to the main vault anyways, (e.g. `[[../../../schedule/dinner]]`) it uses a normal **direct path** instead to be cleaner. (`[[schedule/dinner]]`)
 
+#### Without Plugin:
+- Non conflicting link: `[[notes]]`
+- Conflicting link: `[[work/summer/meetings/notes]]`
+
+#### With Plugin:
+- Non conflicting link: `[[notes]]`
+- Conflicting link **in the same folder**: `[[./notes]]`
+- Conflicting link **in a lower folder**: `[[./meetings/notes]]`
+- Conflicting link **in a higher folder**: `[[../../notes]]`
+- Conflicting link **in a different root folder**: `[[vacations/notes]]`
+
 > **Note:**
 > There IS a existing setting called `Path from current file` under "Files and links > New link format", but that applys to **every** link, so you get things like `[[../../contacts/john]]`, even if you only have 1 note called `john` in your entire vault.
 > 
