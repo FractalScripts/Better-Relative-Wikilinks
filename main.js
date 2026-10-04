@@ -45,6 +45,10 @@ module.exports = class BetterRelativeWikilinks extends Plugin {
                     }
                 }
 
+                if (common === 0) { // return original function if there are no folders in common
+                    return plugin.original.call(this, file, sourcePath, omitExtension);
+                }
+
                 // CREATE RELATIVE PATH
 
                 let backCount = sourceParts.length - common; // calculate how many backouts are needed (original location - files in common with destination)
