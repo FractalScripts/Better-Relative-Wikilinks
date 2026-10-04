@@ -8,7 +8,7 @@ An extremely lightweight Obsidian plugin that makes **`[[wikilinks]]`** cleaner.
 
 Normally, when you create a wikilink in obsidian, it shows up as just the note name. (e.g. `[[notes]]`)
 
-But what if you create a wikilink to `notes`, but you have 2 or more notes of the same name? In that case, Obsidian creates a **direct path**, which looks something like this: `[[work/meetings/notes]]`
+But what if you create a wikilink to `notes`, but you have 2 or more notes of the same name? In that case, Obsidian creates a **direct path**, which looks something like this: `[[work/summer/meetings/notes]]`
 
 This is fine and all, but having an entire long path in your link is inconvenient when the note you are referencing is right next to the active note.
 
