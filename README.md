@@ -4,7 +4,8 @@ An extremely lightweight Obsidian plugin that makes **`[[wikilinks]]`** cleaner.
 
 ---
 
-###### (Disclaimer: This plugin is meant to work with the setting "Files and links > New link format" set to `Shortest path when possible`. If you do not use that setting, turn this plugin off. It won't break, but it will have confusing behavior.)
+[!info]+ Disclaimer:
+This plugin is meant to work with the setting "Files and links > New link format" set to `Shortest path when possible`. If you do not use that setting, turn this plugin off. It won't break, but it will have confusing behavior.
 
 Normally, when you create a wikilink in obsidian, it shows up as just the note name. (e.g. `[[notes]]`)
 
@@ -16,8 +17,7 @@ This plugin fixes that. It changes Obsidian's behavior so that when a wikilink h
 
 If the relative path backs up all the way to the main vault anyways, (e.g. `[[../../../schedule/dinner]]`) it uses a normal **direct path** instead to be cleaner. (`[[schedule/dinner]]`)
 
----
-
+[!info]+ Note:
 There IS a existing setting called `Path from current file` under "Files and links > New link format", but that applys to **every** link, so you get things like `[[../../contacts/john]]`, even if you only have 1 note called `john` in your entire vault.
 
 This plugin keeps the default `[[document]]` formatting when possible, keeping your links nice and tidy.
