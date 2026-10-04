@@ -55,8 +55,12 @@ module.exports = class BetterRelativeWikilinks extends Plugin {
 
                 let relativePath = "";
 
-                for (let i = 0; i < backCount; i++) { // add correct amount of backouts to path
-                    relativePath += "../";
+                if (backCount === 0) { // set the path to the current folder (./) if no backouts are needed
+                    relativePath = "./";
+                } else {
+                    for (let i = 0; i < backCount; i++) { // add correct amount of backouts to path
+                        relativePath += "../";
+                    }
                 }
 
                 let culledTargetParts = targetParts.slice(common); // (the target path without the folders in common with the source path)
