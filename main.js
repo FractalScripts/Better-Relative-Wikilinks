@@ -2,22 +2,26 @@ const { Plugin, TFile } = require("obsidian");
 
 module.exports = class BetterRelativeWikilinks extends Plugin {
 
-    original;
+    original; // init variable
 
     onload() {
         console.log("Loaded Better Relative Wikilinks"); // log initialization
 
         this.original = this.app.metadataCache.fileToLinktext; // save original function
 
-        const plugin = this
+        const plugin = this; // save [this] state
 
         this.app.metadataCache.fileToLinktext = function(file, sourcePath, omitExtension) { // intercept fileToLinktext function
 
-            const matches = plugin.app.vault.getMarkdownFiles().filter( // get all matching filenames of target file & place them into [matches]
-                f => f.basename.toLowerCase() === file.basename.toLowerCase()
+            if (omitExtension === undefined) { // default omitExtension handling
+                omitExtension = true;
+            }
+
+            const matches = plugin.app.vault.getFiles().filter( // get all matching filenames of target file & place them into [matches]
+                f => f.name.toLowerCase() === file.name.toLowerCase()
             );
 
-            if (matches.length === 1) { // if there is only 1 matching file
+            if (matches.length <= 1) { // no conflict
 
                 return plugin.original.call(this, file, sourcePath, omitExtension); // return original function
 
@@ -65,7 +69,9 @@ module.exports = class BetterRelativeWikilinks extends Plugin {
 
                 let culledTargetParts = targetParts.slice(common); // (the target path without the folders in common with the source path)
 
-                culledTargetParts[culledTargetParts.length - 1] = file.basename; // remove file extension (replace last item with target file base name)
+                if (omitExtension && file.extension.toLowerCase() === "md") { // if extension is a markdown file
+                    culledTargetParts[culledTargetParts.length - 1] = file.basename; // remove file extension (replace last item with target file base name)
+                }
 
                 relativePath += culledTargetParts.join("/") // add to path
 
