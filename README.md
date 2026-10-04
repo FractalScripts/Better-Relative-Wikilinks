@@ -1,6 +1,6 @@
-# Better Relative Plugins
+# Better Relative Wikilinks Plugin for Obsidian
 
-An extremely lightweight [Obsidian](https://obsidian.md) plugin that makes **`[[wikilinks]]`** cleaner.
+An extremely lightweight Obsidian plugin that makes **`[[wikilinks]]`** cleaner.
 
 ---
 
@@ -13,6 +13,8 @@ But what if you create a wikilink to `doc`, but you have 2 or more files of the 
 This is fine and all, but having an entire file path in your link is inconvenient when the file you are referencing is right next to the current file.
 
 This plugin fixes that. It changes Obsidian's behavior so that when a wikilink has no conflicting filenames, it stays nice and clean with a single `[[filename]]`, and when there IS a conflict, it replaces it using a **relative path** instead of a direct path, which looks something more like this: `[[../bar/doc]]`, and the path gets shorter the closer together the files are. (e.g. `[[foobar/doc]]`)
+
+If the relative path backs up all the way to the start anyways, (e.g. `[[../../../folder/foo]]`) it uses a normal **direct path** instead to be cleaner. (`[[folder/bar]]`)
 
 If the files are in the same folder, it can even stay as `[[doc]]`, because yes, that is also a valid relative path.
 
