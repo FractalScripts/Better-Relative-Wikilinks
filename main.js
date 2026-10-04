@@ -14,7 +14,7 @@ module.exports = class BetterRelativeWikilinks extends Plugin {
         this.app.metadataCache.fileToLinktext = function(file, sourcePath, omitExtension) { // intercept fileToLinktext function
 
             const matches = plugin.app.vault.getMarkdownFiles().filter( // get all matching filenames of target file & place them into [matches]
-                f => f.basename === file.basename
+                f => f.basename.toLowerCase() === file.basename.toLowerCase()
             );
 
             if (matches.length === 1) { // if there is only 1 matching file
@@ -38,7 +38,7 @@ module.exports = class BetterRelativeWikilinks extends Plugin {
                 let common = 0; // common folder counter
 
                 for (let i = 0; i < sourceParts.length; i++) { // go though sourcePart's length (which has excluded the filename)
-                    if (sourceParts[i] === targetParts[i]) { // if path still matches
+                    if (sourceParts[i].toLowerCase() === targetParts[i].toLowerCase()) { // if path still matches
                         common++ // add 1 to [common]
                     } else {
                         break;
