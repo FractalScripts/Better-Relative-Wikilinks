@@ -1,7 +1,7 @@
 {
     "id": "better-relative-wikilinks",
     "name": "Better Relative Wikilinks",
-    "version": "1.01",
+    "version": "1.0.1",
     "minAppVersion": "1.0.0",
     "description": "Uses relative wikilink paths instead of absolute paths when filenames conflict.",
     "author": "Fractal",
