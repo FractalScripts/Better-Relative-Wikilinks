@@ -21,3 +21,15 @@ If the relative path backs up all the way to the main vault anyways, (e.g. `[[..
 > There IS a existing setting called `Path from current file` under "Files and links > New link format", but that applys to **every** link, so you get things like `[[../../contacts/john]]`, even if you only have 1 note called `john` in your entire vault.
 > 
 > This plugin keeps the default `[[document]]` formatting when possible, keeping your links nice and tidy.
+
+
+### Usage
+
+Usage is very simple, install the plugin on Obsidian, make sure the setting "Files and links > New link format" set to `Shortest path when possible`, and you're set.
+###### (Wikilinks also have to be turned on, obviously.)
+
+Creating new `[[wikilinks]]` now uses the behavior mentioned above.
+
+Disabling the plugin will revert the behavior back to default, but please keep in mind that this plugin does not modify any existing wikilinks.
+
+Note: This plugin only creates native Obsidian wikilink formats, so all links will still work perfectly if you remove the plugin.
